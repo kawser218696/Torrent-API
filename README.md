@@ -1,5 +1,5 @@
-# Corona Info Bot
-A corona information telegram bot
+# Torrent Bot
+A Telegram Bot to get Torrents
 
 ---
 
@@ -13,6 +13,6 @@ A corona information telegram bot
 
 ## API
 
-https://api.sumanjay.cf/covid
+https://api.safone.tech/torrent
 
 ---

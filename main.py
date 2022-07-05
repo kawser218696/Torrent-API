@@ -44,7 +44,7 @@ def torrent(query):
         size = info['size']
         uploaderLink = info['uploaderLink']
         uploadDate = info['uploadDate']
-        magnetLink = magnetLink['longitude']
+        magnetLink = info['magnetLink']
         torrent = f"""--**Torrent Information**--
 
 Name : `{name}`

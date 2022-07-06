@@ -23,10 +23,10 @@ async def start(bot, message):
 
 @Bot.on_message(filters.private & filters.text)
 async def reply_info(_, message):
-    await torrent(message)
+    await torrents(message)
 
 
-async def torrent(message):
+async def torrents(message):
     r = requests.get(API + requote_uri(message.text.lower())).json()
     if 'error' in r.keys():
         return
@@ -35,7 +35,7 @@ async def torrent(message):
         name = info['name']
         category = info['category']
         description = info['description']
-        genre = info['genre']
+        genre = ", ".join(info['genre'])
         infoHash = info['infoHash']
         language = info['language']
         lastChecked = info['lastChecked']
@@ -60,7 +60,7 @@ Leechers : `{leechers}`
 Uploader Link : `{uploaderLink}`
 Upload Date : `{uploadDate}`
 Magnet Link : `{magnetLink}`"""
-        await message.reply(text=torrent)
+        await message.reply_text(torrent)
      except Exception as error:
         print(error)
 

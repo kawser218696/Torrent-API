@@ -23,11 +23,11 @@ async def start(bot, message):
 
 @Bot.on_message(filters.private & filters.text)
 async def reply_info(_, message):
-    await torrent(message.text, message)
+    await torrent(message)
 
 
-async def torrent(query, message):
-    r = requests.get(API + requote_uri(query.lower())).json()
+async def torrent(message):
+    r = requests.get(API + requote_uri(message.text.lower())).json()
     if 'error' in r.keys():
         return
     for info in r['results']:

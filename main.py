@@ -22,16 +22,16 @@ async def start(bot, message):
 
 
 @Bot.on_message(filters.private & filters.text)
-async def reply_info(bot, message):
-    await message.reply(
-        text=torrent(message.text)
-    )
+async def reply_info(_, message):
+    await torrent(message.text, message)
 
 
-def torrent(query):
-    try:
-        r = requests.get(API + requote_uri(query.lower()))
-        info = r.json()
+async def torrent(query, message):
+    r = requests.get(API + requote_uri(query.lower())).json()
+    if 'error' in r.keys():
+        return
+    for info in r['results']:
+     try:
         name = info['name']
         category = info['category']
         description = info['description']
@@ -60,9 +60,9 @@ Leechers : `{leechers}`
 Uploader Link : `{uploaderLink}`
 Upload Date : `{uploadDate}`
 Magnet Link : `{magnetLink}`"""
-        return torrent
-    except Exception as error:
-        return error
+        await message.reply(text=torrent)
+     except Exception as error:
+        print(error)
 
 
 Bot.run()

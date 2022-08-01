@@ -1,6 +1,6 @@
 {
     "name": "Torrent Bot",
-    "description": "Torrent Bot By @Hagadmansa",
+    "description": "Torrent Bot BY Kawser218696",
     "logo": "",
     "keywords": [
         "telegram",
@@ -9,7 +9,7 @@
         "hagadmansa"
     ],
     "repository": "https://github.com/hagadmansa/Torrent-API",
-    "website": "hagadmansa.com",
+    "website": "KawserPlayz.ml",
     "success_url": "https://t.me/hagadmansa",
     "env": {
         "API_ID": {
